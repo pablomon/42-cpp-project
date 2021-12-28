@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:28:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/12/27 11:56:06 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/12/27 12:12:41 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class Weapon
 {
 	public:
+	Weapon(std::string type);
 	const std::string& getType();
 	void setType(std::string str);
 

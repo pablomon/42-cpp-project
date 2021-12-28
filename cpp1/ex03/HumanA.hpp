@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:41:09 by pmontese          #+#    #+#             */
-/*   Updated: 2021/12/27 12:02:30 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/12/27 16:31:41 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 class HumanA
 {
 	public:
-	HumanA(Weapon weapon);
-	void Attack();
+	HumanA(std::string name, Weapon &weapon);
+	void attack();
 
-	std::string name;
-	Weapon weapon;
+	std::string _name;
+	Weapon &_weapon;
 };
 
 #endif
