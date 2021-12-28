@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:22:56 by pmontese          #+#    #+#             */
-/*   Updated: 2021/12/28 15:31:41 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:42:42 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 std::string replace(std::string text, std::string s1, std::string s2)
 {
 	std::string newText;
-	unsigned long pos = 0;
-	unsigned long lastpos;
+	std::size_t pos = 0;
+	std::size_t lastpos = 0;
 	while (pos <= text.length())
 	{
 		lastpos = pos;
 		pos = text.find(s1, lastpos);
 		std::string substr = text.substr(lastpos, pos - lastpos);
 		newText.append(substr);
-		if (pos < 0)
+		if (pos < 0 || pos > text.length())
 			break;
 		newText.append(s2);
 		pos += s1.length();
@@ -48,10 +48,10 @@ int main(int argc, char const *argv[])
 	s1 = argv[2];
 	s2 = argv[3];
 
-    // Check if the file is a directory:
-    struct stat     stat;
-    lstat( filename.c_str(), &stat );
-    if ( S_ISDIR(stat.st_mode) ) 
+	// Check if the file is a directory:
+	struct stat stat;
+	lstat( filename.c_str(), &stat );
+	if ( S_ISDIR(stat.st_mode) ) 
 	{
 		std::cout << "Found directory, exiting" << std::endl;
 		return 0;
