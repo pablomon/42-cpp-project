@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 10:55:58 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 14:04:36 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/01/08 15:49:53 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(void)
 	k->complain("warning");
 	k->complain("error");
 	k->complain("invalid option defaults to debug");
+	delete k;
 	return 0;
 }

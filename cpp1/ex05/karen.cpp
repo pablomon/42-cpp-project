@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 11:00:40 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 14:02:50 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/01/08 15:49:43 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ Karen::Karen()
 	ptrs[1] = &Karen::info;
 	ptrs[2] = &Karen::warning;
 	ptrs[3] = &Karen::error;
+}
+
+Karen::~Karen()
+{
+	
 }
 
 void Karen::debug( void )
