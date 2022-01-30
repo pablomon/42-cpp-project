@@ -10,7 +10,6 @@ class Animal
 	std::string type;
 
 	public:
-	Brain *brain;
 	virtual void makeSound(void) const;
 	std::string getType(void) const;
 

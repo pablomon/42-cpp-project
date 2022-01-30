@@ -9,6 +9,7 @@ class Cat : public Animal
 {
 	public:
 	virtual void makeSound(void) const;
+	Brain *brain;
 
 	Cat();
 	virtual ~Cat();

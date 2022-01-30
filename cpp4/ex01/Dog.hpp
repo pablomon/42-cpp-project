@@ -4,6 +4,7 @@
 class Dog : public Animal
 {
 	public:
+	Brain *brain;
 	virtual void makeSound(void) const;
 
 	Dog();
