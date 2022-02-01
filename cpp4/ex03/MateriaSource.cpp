@@ -3,14 +3,14 @@
 MateriaSource::MateriaSource() {
 	std::cout << "default constructor MateriaSource\n";
 	for (int i = 0; i < 4; i++)
-		inventory[i] = 0;
+		memory[i] = 0;
 }
 
 MateriaSource::~MateriaSource() {
 	std::cout << "destructor MateriaSource\n";
 	for (int i = 0; i < 4; i++)
-		if (inventory[i])
-			delete inventory[i];
+		if (memory[i])
+			delete memory[i];
 }
 
 MateriaSource::MateriaSource(const MateriaSource &materiaSource) {
@@ -23,24 +23,24 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource) {
 	if (this == &materiaSource)
 		return *this;
 	for (int i = 0; i < 4; i++)
-		if (inventory[i])
-			delete inventory[i];
+		if (memory[i])
+			delete memory[i];
 	for (int i = 0; i < 4; i++)
-		inventory[i] = materiaSource.inventory[i]->clone();
+		memory[i] = materiaSource.memory[i]->clone();
 	return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *amateria) {
 	for (int i = 0; i < 4; i++)
-		if (!inventory[i]) {
-			inventory[i] = amateria;
+		if (!memory[i]) {
+			memory[i] = amateria;
 			return ;
 		}
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type) {
 	for (int i = 0; i < 4; i++)
-		if (inventory[i] && inventory[i]->getType() == type)
-			return inventory[i]->clone();
+		if (memory[i] && memory[i]->getType() == type)
+			return memory[i]->clone();
 	return 0;
 }

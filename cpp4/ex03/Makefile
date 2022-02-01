@@ -6,7 +6,7 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:23:47 by pmontese          #+#    #+#              #
-#    Updated: 2022/01/30 21:34:20 by pmontese         ###   ########.fr        #
+#    Updated: 2022/02/01 09:31:43 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME	:= test
 
 # Sources and objects.
-HDRS	:= AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp
-SRCS	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+HDRS	:= AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
+SRCS	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.

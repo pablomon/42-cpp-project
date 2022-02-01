@@ -46,20 +46,31 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria *m) {
+	
 	for (int i = 0; i < 4; i++)
 	{
 		if (!inventory[i]) 
 		{
 			inventory[i] = m;
+			std::cout << name << " equiped " << m->getType() << std::endl;
 			return ;
 		}
 	}
+	std::cout << name << " has no space for equipping " << m->getType() << std::endl;
 }
 
-void Character::unequip(int idx) { 
-	inventory[idx] = NULL; 
+void Character::unequip(int idx) {
+	if (inventory[idx])
+		std::cout << name << " unequipping materia in " << idx << std::endl;
+	inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target) {
-	inventory[idx]->use(target);
+	if (inventory[idx])
+	{
+		inventory[idx]->use(target);
+		std::cout << name << " using materia " << idx << " on " << target.getName() << std::endl;
+	}
+	else
+		std::cout << name << " has no materia on position " << idx << std::endl;
 }
