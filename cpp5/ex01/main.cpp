@@ -4,12 +4,12 @@
 int main(void) 
 {
 	std::cout << "\n" << "Creating a newby bureaucrat\n";
-	Bureaucrat *b1 = new Bureaucrat("Newby", 150);
+	Bureaucrat *b1 = new Bureaucrat("Newby", 150, 150);
 
 	std::cout << "\n" << "Creating a couple forms\n";
-	Form	*f1 = new Form("Easy", 150);
+	Form	*f1 = new Form("Easy", 150, 150);
 	std::cout << *f1;
-	Form	*f2 = new Form("Normal", 120);
+	Form	*f2 = new Form("Normal", 120, 150);
 	std::cout << *f2;
 
 	std::cout << "\n" << b1->getName() << " tries to sign the forms:\n";
@@ -35,7 +35,7 @@ int main(void)
 	}
 
 	std::cout << "\n" << "Creating a higher rank bureaucrat\n";
-	Bureaucrat *b2 = new Bureaucrat("gray", 100);
+	Bureaucrat *b2 = new Bureaucrat("gray", 100, 100);
 
 	std::cout << "\n" << b2->getName() << " tries to sign the form:\n";
 	try

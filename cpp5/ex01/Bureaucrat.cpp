@@ -1,26 +1,27 @@
 #include "Bureaucrat.hpp"
 
 /* Canonical form */
-Bureaucrat::Bureaucrat() : name("Gray"), grade(150)
+Bureaucrat::Bureaucrat() : name("Gray"), signGrade(150)
 {
 	std::cout << getName() << " of grade " << getGrade() << " created\n";
 }
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int signGrade, int execGrade) : name(name)
 {
-	if (grade > 150)
+	if (signGrade > 150 || execGrade > 150)
 		throw GradeTooLowException();
-	if (grade < 1)
+	if (signGrade < 1 || execGrade < 1)
 		throw GradeTooHighException();
-	this->grade = grade;
+	this->signGrade = signGrade;
+	this->execGrade = execGrade;
 	std::cout << getName() << " of grade " << getGrade() << " created\n";
 }
 Bureaucrat::~Bureaucrat() {}
-Bureaucrat::Bureaucrat(const Bureaucrat &o) : name(o.getName()), grade(o.getGrade()) { }
+Bureaucrat::Bureaucrat(const Bureaucrat &o) : name(o.getName()), signGrade(o.getGrade()) { }
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &o) 
 {
 	if (this == &o)
 		return *this;
-	grade = o.getGrade();
+	signGrade = o.getGrade();
 	return *this;
 }
 
@@ -33,20 +34,20 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 
 /* Getters */
 const std::string Bureaucrat::getName() const { return name; }
-int Bureaucrat::getGrade() const { return grade; }
+int Bureaucrat::getGrade() const { return signGrade; }
 
 /* Member functions */
 void Bureaucrat::gradeUp() {
-	if (grade == 1)
+	if (signGrade == 1)
 		throw GradeTooHighException();
-	grade--;
+	signGrade--;
 	std::cout << getName() << " upgraded to " << getGrade() << "\n";
 }
 
 void Bureaucrat::gradeDown() {
-	if (grade == 150)
+	if (signGrade == 150)
 		throw GradeTooLowException();
-	grade++;
+	signGrade++;
 	std::cout << getName() << " downgraded to " << getGrade() << "\n";
 }
 

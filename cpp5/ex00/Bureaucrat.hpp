@@ -7,7 +7,7 @@
 class Bureaucrat {
 	private:
 	const std::string name;
-	int grade;
+	int signGrade;
 
 	public:
 	const std::string getName() const;

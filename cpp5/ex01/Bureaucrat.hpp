@@ -10,7 +10,8 @@ class Form;
 class Bureaucrat {
 	private:
 	const std::string name;
-	int grade;
+	int signGrade;
+	int execGrade;
 
 	public:
 	const std::string getName() const;
@@ -30,7 +31,7 @@ class Bureaucrat {
 	void gradeDown();
 	void signForm(Form &form);
 
-	Bureaucrat(std::string name, int grade);
+	Bureaucrat(std::string name, int signGrade, int execGrade);
 	Bureaucrat();
 	~Bureaucrat();
 	Bureaucrat(const Bureaucrat &bureaucrat);
