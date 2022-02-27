@@ -11,6 +11,6 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string str(argv[1]);
-	convert(str);
+	Converter converter(str);
 	return 0;
 }
