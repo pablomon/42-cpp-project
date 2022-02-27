@@ -10,12 +10,6 @@ class Converter
 {
 	private:
 	std::string str;
-	char	cinput;
-	int		iinput;
-	float	finput;
-	double	dinput;
-	int		type = -1; // 0 = char .. 3 = double
-	double	values[4];
 
 	public:
 	Converter(const std::string);

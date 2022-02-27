@@ -1,4 +1,4 @@
-#include "converter.hpp"
+#include "Converter.hpp"
 
 Converter::Converter(const std::string str) : str(str) {
 	print_char();

@@ -11,6 +11,9 @@ ScavTrap::ScavTrap(std::string const &Name) : ClapTrap(Name)
 ScavTrap::ScavTrap() : ClapTrap() 
 { 
 	std::cout << "default ScavTrap constructor\n"; 
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 void	ScavTrap::attack(std::string const &target)

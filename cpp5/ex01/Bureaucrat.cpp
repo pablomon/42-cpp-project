@@ -52,7 +52,18 @@ void Bureaucrat::gradeDown() {
 }
 
 void Bureaucrat::signForm(Form &form) {
-	form.beSigned(*this);
+	try
+	{
+		form.beSigned(*this);
+		std::cout << getName() << " signs " << form.getName() << "\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << getName() << " couldn't sign " << form.getName() 
+		<< " because: " << e.what() << "\n";
+		throw;
+	}
+	 
 }
 
 /* Exceptions */

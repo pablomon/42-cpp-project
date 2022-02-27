@@ -6,7 +6,7 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:23:47 by pmontese          #+#    #+#              #
-#    Updated: 2022/02/27 02:27:03 by pmontese         ###   ########.fr        #
+#    Updated: 2022/02/27 12:44:41 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@
 NAME	:= converter
 
 # Sources and objects.
-HDRS	:= converter.hpp
-SRCS	:= main.cpp converter.cpp
+HDRS	:= Converter.hpp
+SRCS	:= main.cpp Converter.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX			:= clang++
-CXXFLAGS	:= -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS	:= -Wall -Werror -Wextra -std=c++98
 
 # Compile and create everything.
 all: $(NAME)

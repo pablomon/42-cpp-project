@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:24:38 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 23:45:35 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/01/26 11:09:56 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ class Fixed
 {
 	private:
 		int value;
-		static const int point;
+		static const int point = 8;
 	public:
 		Fixed();
 		~Fixed();
