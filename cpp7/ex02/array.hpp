@@ -18,7 +18,7 @@ class Array {
 			content[i] = o.content[i];
 	};
 
-	~Array() { delete content; };
+	~Array() { delete []content; };
 
 	Array &operator= (const Array<T> &o) {
 		size = o.size;
