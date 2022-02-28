@@ -32,7 +32,27 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
-	// it would also work with a list
-	
+
+	LOG("\nInitializing list:");
+	std::list<int> l;
+	l.push_back(10);
+	l.push_back(20);
+	l.push_back(30);
+
+	LOG("Finding value 10:");
+	std::list<int>::iterator it2 = easyfind(l, 10);
+	LOG(*it2);
+
+	try
+	{
+		LOG("Finding value 123:");
+		std::vector<int>::iterator it = easyfind(v, 123);
+		LOG(*it);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
     return 0;
 }
