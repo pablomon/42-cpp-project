@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   karen.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 11:00:40 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 17:22:46 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/02 00:53:35 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 Karen::Karen()
 {
-	levels[0] = "debug";
-	levels[1] = "info";
-	levels[2] = "warning";
-	levels[3] = "error";
+	levels[0] = "DEBUG";
+	levels[1] = "INFO";
+	levels[2] = "WARNING";
+	levels[3] = "ERROR";
+	levels[4] = "INVALID";
 	ptrs[0] = &Karen::debug;
 	ptrs[1] = &Karen::info;
 	ptrs[2] = &Karen::warning;
 	ptrs[3] = &Karen::error;
+	ptrs[4] = &Karen::invalid;
 }
 
-Karen::~Karen()
-{
-	
-}
+Karen::~Karen() { }
 
 void Karen::debug( void )
 {
@@ -50,8 +49,19 @@ void Karen::error( void )
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
+void Karen::invalid( void )
+{
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
+
 void Karen::complain(std::string level)
 {
+	if (levels[4] == level)
+	{
+		karenFuncPointer ptr = ptrs[4];
+		(this->*ptr)();
+		return;
+	}
 	int l = 0;
 	for (int i = 0; i < 4; i++)
 	{

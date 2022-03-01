@@ -1,5 +1,5 @@
 # Name of the program.
-NAME     = test
+NAME     = karenFilter
 
 # Sources and objects.
 HDRS     = karen.hpp

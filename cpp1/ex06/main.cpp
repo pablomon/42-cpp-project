@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 10:55:58 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 17:11:40 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/02 00:53:09 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 
 	Karen *k = new Karen();
 
-	int ilvl = 0;
+	int ilvl = 4;
 	for (int i = 0; i < 4; i++)
 	{
 		std::string in = argv[1];
@@ -35,25 +35,26 @@ int main(int argc, char **argv)
 	switch (ilvl)
 	{
 		case 0:
-			k->complain("debug");
-			k->complain("info");
-			k->complain("warning");
-			k->complain("error");
+			k->complain("DEBUG");
+			k->complain("INFO");
+			k->complain("WARNING");
+			k->complain("ERROR");
 		break;
 		case 1:
-			k->complain("info");
-			k->complain("warning");
-			k->complain("error");
+			k->complain("INFO");
+			k->complain("WARNING");
+			k->complain("ERROR");
 		break;
 		case 2:
-			k->complain("warning");
-			k->complain("error");
+			k->complain("WARNING");
+			k->complain("ERROR");
 		break;
 		case 3:
-			k->complain("error");
+			k->complain("ERROR");
 		break;
-	
+
 	default:
+			k->complain("INVALID");
 		break;
 	}
 

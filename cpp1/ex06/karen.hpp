@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 11:03:07 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 15:48:54 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/02 00:50:15 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ private:
 	void info( void );
 	void warning( void );
 	void error( void );
+	void invalid( void );
 public:
-	karenFuncPointer ptrs[4];
-	std::string levels[4];
+	karenFuncPointer ptrs[5];
+	std::string levels[5];
 	void complain(std::string level);
 	Karen();
 	~Karen();
