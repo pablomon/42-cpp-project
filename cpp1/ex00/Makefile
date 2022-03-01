@@ -2,8 +2,8 @@
 NAME     := test
 
 # Sources and objects.
-HDRS     := zombie.hpp
-SRCS     := main.cpp zombie.cpp newZombie.cpp randomChump.cpp
+HDRS     := Zombie.hpp
+SRCS     := main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
