@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 16:51:36 by pmontese          #+#    #+#             */
-/*   Updated: 2021/12/15 19:45:14 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:55:17 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void search(PhoneBook *phoneBook)
 	else
 	{
 		std::cout << "Input contact number to know more:\n";
-		if (!(std::cin >> input)) 
+		if (!(std::cin >> input))
 		{
 			std::cout << "Invalid: Not an integer" << std::endl;
 			std::cin.clear();
@@ -102,11 +102,11 @@ int main(void)
 		std::cout << "\nType ADD, SEARCH or EXIT" << std::endl;
 		std::string userInput;
 		std::cin >> userInput;
-		if (userInput == ADD)
+		if (userInput == "ADD" || userInput == "add")
 			add(&phoneBook);
-		else if (userInput == SEARCH)
+		else if (userInput == "SEARCH" || userInput == "search")
 			search(&phoneBook);
-		else if (userInput == EXIT)
+		else if (userInput == "EXIT" || userInput == "exit")
 			break;
 		else
 			continue;
