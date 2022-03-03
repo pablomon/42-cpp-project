@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:18 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/08 23:48:53 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/03 21:16:50 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
+	value = 0;
 }
 
 Fixed::~Fixed()
