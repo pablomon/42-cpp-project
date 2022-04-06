@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:18 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/26 20:12:53 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/03 21:23:17 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,17 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const {	return (int)value / (1 << point); }
 
-bool Fixed::operator > (const Fixed &f) { return (value > f.getRawBits()); }
+bool Fixed::operator > (const Fixed &f) const { return (value > f.getRawBits()); }
 
-bool Fixed::operator < (const Fixed &f) { return (value < f.getRawBits()); }
+bool Fixed::operator < (const Fixed &f) const { return (value < f.getRawBits()); }
 
-bool Fixed::operator >= (const Fixed &f) { return (value >= f.getRawBits()); }
+bool Fixed::operator >= (const Fixed &f) const { return (value >= f.getRawBits()); }
 
-bool Fixed::operator <= (const Fixed &f) { return (value <= f.getRawBits()); }
+bool Fixed::operator <= (const Fixed &f) const { return (value <= f.getRawBits()); }
 
-bool Fixed::operator == (const Fixed &f) { return (value == f.getRawBits()); }
+bool Fixed::operator == (const Fixed &f) const { return (value == f.getRawBits()); }
 
-bool Fixed::operator != (const Fixed &f) { return (value == f.getRawBits()); }
+bool Fixed::operator != (const Fixed &f) const { return (value == f.getRawBits()); }
 
 Fixed Fixed::operator + (const Fixed &f)
 {

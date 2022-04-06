@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 20:00:01 by pmontese          #+#    #+#             */
-/*   Updated: 2022/03/02 00:01:55 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/06 18:20:58 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ class Zombie
 	Zombie();
 	~Zombie();
 	void announce(void);
-	Zombie *zombieHorde(int n, std::string name);
 };
+
+Zombie *zombieHorde(int n, std::string name);
+
+
 
 #endif

@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 #include <sstream>
 
-Zombie *Zombie::zombieHorde(int n, std::string name)
-{	
+Zombie *zombieHorde(int n, std::string name)
+{
 	std::string s;
 
 	Zombie *p = new Zombie[n];
@@ -13,6 +13,6 @@ Zombie *Zombie::zombieHorde(int n, std::string name)
 		s = name + oss.str();
 		p[i].name = s;
 	}
-	
+
 	return p;
 }

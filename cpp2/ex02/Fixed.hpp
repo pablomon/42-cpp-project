@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:24:38 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/26 20:15:23 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/03/03 21:21:46 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class Fixed
 		// overloaded comparison operators
 		bool operator>(const Fixed &f) const;
 		bool operator<(const Fixed &f) const;
-		bool operator>=(const Fixed &f);
-		bool operator<=(const Fixed &f);
-		bool operator==(const Fixed &f);
-		bool operator!=(const Fixed &f);
+		bool operator>=(const Fixed &f) const;
+		bool operator<=(const Fixed &f) const;
+		bool operator==(const Fixed &f) const;
+		bool operator!=(const Fixed &f) const;
 
 		// overloaded arithmetic operators
 		Fixed operator+(const Fixed &f);
@@ -51,7 +51,7 @@ class Fixed
 		Fixed	operator++(int n);
 		Fixed	&operator--();
 		Fixed	operator--(int n);
-		
+
 		// min max
 		static Fixed	&min(Fixed &f1, Fixed &f2);
 		static Fixed	&max(Fixed &f1, Fixed &f2);
