@@ -1,8 +1,8 @@
 # Name of the program.
-NAME     = test
+NAME     = replace
 
 # Sources and objects.
-HDRS     = 
+HDRS     =
 SRCS     = main.cpp
 OBJS     = $(SRCS:.cpp=.o)
 

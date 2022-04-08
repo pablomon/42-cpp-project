@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 10:55:58 by pmontese          #+#    #+#             */
-/*   Updated: 2022/03/02 00:17:59 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/06 19:29:42 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 
 int main(void)
 {
-	Karen *k = new Karen();
+	Karen k;
 	std::cout << "DEBUG:" << std::endl;
-	k->complain("debug");
+	k.complain("debug");
 	std::cout << "INFO:" << std::endl;
-	k->complain("info");
+	k.complain("info");
 	std::cout << "WARNING:" << std::endl;
-	k->complain("warning");
+	k.complain("warning");
 	std::cout << "ERROR:" << std::endl;
-	k->complain("error");
+	k.complain("error");
 	std::cout << "INVALID:" << std::endl;
-	k->complain("invalid option defaults to debug");
-	delete k;
+	k.complain("invalid option defaults to debug");
 	return 0;
 }

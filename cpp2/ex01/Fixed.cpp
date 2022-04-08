@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:18 by pmontese          #+#    #+#             */
-/*   Updated: 2022/01/26 19:27:10 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/08 18:13:21 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &v)
 
 float Fixed::toFloat(void) const
 {
-	return (float)value / (float)(1 << point);
+	return (float)value / (1 << point);
 }
 
 int Fixed::toInt(void) const

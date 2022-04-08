@@ -6,56 +6,48 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 23:35:18 by pmontese          #+#    #+#             */
-/*   Updated: 2022/03/03 21:23:17 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/08 19:12:30 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-Fixed::Fixed()
+Fixed::Fixed() : value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int i)
 {
-	std::cout << "Int constructor called\n";
 	value = i * (1 << point);
 }
 
 Fixed::Fixed(const float f)
 {
-	std::cout << "Float constructor called\n";
 	value = roundf(f * (1 << point));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &f)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	value = f.getRawBits();
 }
 
 void Fixed::operator = (const Fixed &f)
 {
-	std::cout << "Assignation operation called" << std::endl;
 	value = f.getRawBits();
 }
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return value;
 }
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	value = raw;
 }
 
@@ -100,15 +92,21 @@ Fixed Fixed::operator - (const Fixed &f)
 
 Fixed Fixed::operator * (const Fixed &f)
 {
-	Fixed res;
-	res.setRawBits(this->toFloat() * f.toFloat());
+	float v1 = toFloat();
+	float v2 = f.toFloat();
+	float v = v1 * v2;
+	Fixed res(v);
+
 	return res;
 }
 
 Fixed Fixed::operator / (const Fixed &f)
 {
-	Fixed res;
-	res.setRawBits(this->toFloat() / f.toFloat());
+	float v1 = toFloat();
+	float v2 = f.toFloat();
+	float v = v1 / v2;
+	Fixed res(v);
+
 	return res;
 }
 
@@ -124,14 +122,18 @@ Fixed &Fixed::operator -- ()
 	return *this;
 }
 
-Fixed Fixed::operator ++ (int n)
+Fixed Fixed::operator ++ (int)
 {
-	return Fixed(this->getRawBits() + n);
+	Fixed tmp = *this;
+	value ++;
+	return tmp;
 }
 
-Fixed Fixed::operator -- (int n)
+Fixed Fixed::operator -- (int)
 {
-	return Fixed(this->getRawBits() - n);
+	Fixed tmp = *this;
+	value --;
+	return tmp;
 }
 
 Fixed &Fixed::min(Fixed &f1, Fixed &f2) { return (f1 < f2 ? f1 : f2); }
