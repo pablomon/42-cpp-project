@@ -44,7 +44,7 @@ ClapTrap::~ClapTrap()
 
 void	ClapTrap::attack(std::string const &target)
 {
-	std::cout << "ClapTrap " << name << " attacks " << target 
+	std::cout << "ClapTrap " << name << " attacks " << target
 	<< " causing "	<< attackDamage << " points of damage!" << std::endl;
 	energyPoints--;
 }
@@ -66,5 +66,6 @@ void	ClapTrap::print(void)
 	std::cout << "\nTRAP INFO:\n" << "Name: " << name << std::endl
 	<< "Hit points: " << hitPoints << std::endl
 	<< "Energy points: " << energyPoints << std::endl
-	<< "Attack damage: " << attackDamage << std::endl;
+	<< "Attack damage: " << attackDamage << std::endl
+	<< std::endl;
 }

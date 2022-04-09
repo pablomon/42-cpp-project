@@ -1,5 +1,5 @@
 #include <iostream>
-#include "diamondTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
