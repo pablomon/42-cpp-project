@@ -41,15 +41,15 @@ Character &Character::operator=(const Character &o) {
 	return *this;
 }
 
-std::string const &Character::getName() const { 
-	return name; 
+std::string const &Character::getName() const {
+	return name;
 }
 
 void Character::equip(AMateria *m) {
-	
+
 	for (int i = 0; i < 4; i++)
 	{
-		if (!inventory[i]) 
+		if (!inventory[i])
 		{
 			inventory[i] = m;
 			std::cout << name << " equiped " << m->getType() << std::endl;
@@ -68,8 +68,8 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter &target) {
 	if (inventory[idx])
 	{
-		inventory[idx]->use(target);
 		std::cout << name << " using materia " << idx << " on " << target.getName() << std::endl;
+		inventory[idx]->use(target);
 	}
 	else
 		std::cout << name << " has no materia on position " << idx << std::endl;
