@@ -11,6 +11,7 @@ class ShrubberyCreationForm : public Form {
 	virtual ~ShrubberyCreationForm();
 	ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyCreationForm);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &shrubberyCreationForm);
+	static Form *getCopy(std::string target);
 
 	private:
 	void action() const;

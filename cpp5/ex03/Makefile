@@ -6,7 +6,7 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:23:47 by pmontese          #+#    #+#              #
-#    Updated: 2022/02/02 10:50:58 by pmontese         ###   ########.fr        #
+#    Updated: 2022/04/15 16:38:14 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME	:= test
 
 # Sources and objects.
-HDRS	:= Bureaucrat.hpp Form.hpp
-SRCS	:= main.cpp Bureaucrat.cpp Form.cpp
+# HDRS	:= Bureaucrat.hpp Form.hpp Intern.hpp
+SRCS	:= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.

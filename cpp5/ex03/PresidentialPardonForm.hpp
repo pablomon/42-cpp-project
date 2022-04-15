@@ -13,6 +13,7 @@ class PresidentialPardonForm : public Form {
 	PresidentialPardonForm(const PresidentialPardonForm &presidentialPardonForm);
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &presidentialPardonForm);
 
+	static Form *getCopy(std::string target);
 	private:
 	void action() const;
 };

@@ -13,6 +13,7 @@ class RobotomyRequestForm : public Form {
 	virtual ~RobotomyRequestForm();
 	RobotomyRequestForm(const RobotomyRequestForm &form);
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &form);
+	static Form *getCopy(std::string target);
 
 	private:
 	void action() const;

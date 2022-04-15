@@ -2,21 +2,23 @@
 #define INTERN_HPP
 
 # include <iostream>
-# include <exception>
+# include <sstream>
 # include <string>
-# include <form.h>
+# include "form.h"
+# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 class Form;
 
 class Intern{
-	private:
-
 	public:
-	Form *makeForm(std::string const name, std::string target)
-	{
-		std::cout << "Intern creates << form" << std::endl;
-		
-	}
+	Intern();
+	~Intern();
+	Intern(const Intern &o);
+	Intern &operator=(const Intern &o);
+
+	Form *makeForm(std::string const name, std::string target);
 };
 
 #endif
