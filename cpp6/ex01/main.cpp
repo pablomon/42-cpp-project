@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/17 22:00:29 by pmontese          #+#    #+#             */
+/*   Updated: 2022/04/18 01:07:04 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 // #include <string>
 #include <iostream>
 #include <stdint.h>
@@ -5,54 +17,53 @@
 
 struct Data
 {
-	int x,y,z;
+	int x;
+	double d;
+	char c;
 };
 
-uintptr_t serialize(Data* ptr)
+void print(Data &data)
 {
-	uintptr_t serializedPtr;
+	std::cout
+	<< "  x = " << data.x << "\n"
+	<< "  y = " << data.d << "\n"
+	<< "  c = " << data.c << "\n"
+	<< std::endl;
+}
 
-	int *serialized = new int[3];
-	int *tmp = (int*)ptr;
-	for (size_t i = 0; i < 3; i++)
-		serialized[i] = tmp[i];
-	serializedPtr = (uintptr_t)ptr;
-
-	return serializedPtr;
+uintptr_t serialize(Data *ptr)
+{
+	std::cout << "Serializing data...\n";
+	char *serialized = new char[sizeof(Data)];
+	char *charptr = reinterpret_cast<char*>(ptr);
+	for (size_t i = 0; i < sizeof(Data); i++)
+		serialized[i] = charptr[i];
+	
+	uintptr_t intptr = reinterpret_cast<uintptr_t>(serialized);
+	return intptr;
 }
 
 Data* deserialize(uintptr_t raw)
 {
-	Data *d;
-
-	d = new Data;
-	d->x = 23;
-	int	*rawptr = (int*)raw;
-	int *tmp = (int*)d;
-	for (size_t i = 0; i < 3; i++)
-		tmp[i] = rawptr[i];
-
-	return d;
+	Data* ptr = reinterpret_cast<Data*>(raw);
+	return ptr;
 }
-
-void	printData(Data *data)
-{
-	std::cout << "x = " << data->x << "\n";
-	std::cout << "y = " << data->y << "\n";
-	std::cout << "z = " << data->z << "\n";
-}
-
 
 int main(void)
 {
-	
-	Data od = {5, -475458, 1234};
+	Data od = { 1,2,'c' };
 	std::cout << "Original data:\n";
-	printData(&od);
-	uintptr_t serialized = serialize(&od);
-	Data *deserialized = deserialize(serialized);
+	print(od);
+	uintptr_t raw = serialize(&od);
+	std::cout << "Serialized data ptr = " << raw << std::endl;
+	od.x = 42;
+	od.d = 42;
+	od.c = 42;
+	std::cout << "Modified data:\n";
+	print(od);
+	Data *deserialized = deserialize(raw);
 	std::cout << "Deserialized data:\n";
-	printData(deserialized);
-
+	print(*deserialized);
+	delete deserialized;
 	return 0;
 }

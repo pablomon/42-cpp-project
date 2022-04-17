@@ -1,4 +1,15 @@
-// #include <string>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/17 22:00:00 by pmontese          #+#    #+#             */
+/*   Updated: 2022/04/17 22:00:02 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>
@@ -19,12 +30,12 @@ Base *generate( void )
 		std::cout << "Creating class of type A\n";
 		obj = new A;
 	}
-	if (ran == 1)
+	else if (ran == 1)
 	{
 		std::cout << "Creating class of type B\n";
 		obj = new B;
 	}
-	if (ran == 2)
+	else if (ran == 2)
 	{
 		std::cout << "Creating class of type C\n";
 		obj = new C;

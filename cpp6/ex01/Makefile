@@ -6,15 +6,14 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:23:47 by pmontese          #+#    #+#              #
-#    Updated: 2022/02/27 14:27:50 by pmontese         ###   ########.fr        #
+#    Updated: 2022/04/17 21:16:25 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the program.
-NAME	:= converter
+NAME	:= test
 
 # Sources and objects.
-HDRS	:= 
 SRCS	:= main.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 
