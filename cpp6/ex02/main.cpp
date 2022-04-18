@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:00:00 by pmontese          #+#    #+#             */
-/*   Updated: 2022/04/17 22:00:02 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:15:37 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 Base *generate( void )
 {
 	Base *obj;
-	int ran;
+	int ran = 0;
 
 	std::srand(getpid());
 	ran = rand() % 3;
@@ -30,12 +30,12 @@ Base *generate( void )
 		std::cout << "Creating class of type A\n";
 		obj = new A;
 	}
-	else if (ran == 1)
+	if (ran == 1)
 	{
 		std::cout << "Creating class of type B\n";
 		obj = new B;
 	}
-	else if (ran == 2)
+	if (ran == 2)
 	{
 		std::cout << "Creating class of type C\n";
 		obj = new C;
@@ -59,6 +59,6 @@ int main(void)
 	b = generate();
 	identify(b);
 	delete b;
-	
+
 	return 0;
 }

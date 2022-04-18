@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Converter.hpp                                      :+:      :+:    :+:   */
+/*   converter.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:00:38 by pmontese          #+#    #+#             */
-/*   Updated: 2022/04/17 22:00:38 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:46:10 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ class Converter
 	public:
 	Converter(const std::string);
 	~Converter();
+	Converter(const Converter &o);
 	Converter &operator= ( Converter const & other );
 
 	private:
 	void print();
+	bool isPrintableChar(char c);
 	public:
-	void print_char();
-	void print_int();
-	void print_float();
-	void print_double();
+	void print_char(std::string str);
+	void print_int(std::string str);
+	void print_float(std::string str);
+	void print_double(std::string str);
 };
 
 #endif

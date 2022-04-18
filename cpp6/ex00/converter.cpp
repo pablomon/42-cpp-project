@@ -1,98 +1,103 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Converter.cpp                                      :+:      :+:    :+:   */
+/*   converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:00:35 by pmontese          #+#    #+#             */
-/*   Updated: 2022/04/17 22:00:35 by pmontese         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:09:44 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Converter.hpp"
+#include "converter.hpp"
 
 Converter::Converter(const std::string str) : str(str) {
-	print_char();
-	print_int();
-	print_float();
-	print_double();
+	print_char(str);
+	print_int(str);
+	print_float(str);
+	print_double(str);
 }
 Converter::~Converter() {};
+Converter::Converter(const Converter &o) { this->str = o.str; }
 Converter &Converter::operator= (const Converter &o) {
 	this->str = o.str;
 	return *this;
 };
 
-void Converter::print_char()
+void Converter::print_char(std::string str)
 {
 	std::cout << "char : ";
-	if (str.length() == 1)
-	{
-		if (isprint(str[0]))
-			std::cout << "'" << (char)str[0] << "'\n";
-		else
-			std::cout << "Non displayable\n";
-		return;
-	}
 	try {
-		int integer = std::stoi(str);
-		char c = (char)integer;
-		if (integer >= 0 && integer <=255)
+		double d = std::stod(str);
+		if (d < 0 || d > 255)
 		{
-			if (isprint(c))
-				std::cout << "'" << c << "'\n";
-			else
-				std::cout << "Non displayable\n";
+			std::cout << "Impossible" << std::endl;
+			return;
 		}
+		char c = static_cast<char> (d);
+		if (isprint(c))
+			std::cout << "'" << c << "'" << std::endl;
 		else
-			std::cout << "Imposible\n";
+			std::cout << "Non displayable" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Imposible\n";
+		std::cout << "Impossible" << std::endl;
 	}
 }
 
-void Converter::print_int()
+void Converter::print_int(std::string str)
 {
 	std::cout << "int: ";
 	try {
-		int integer = (int)std::stoi(str);
+		int integer = static_cast<int>(std::stoi(str));
 		std::cout << integer << "\n";
 	}
-	catch(const std::exception& e)
+	catch(const std::invalid_argument &e)
 	{
-		std::cout << "Imposible\n";
+		std::cout << "Impossible" << std::endl;
+	}
+	catch(const std::out_of_range &e)
+	{
+		std::cout << "Non displayable" << std::endl;
 	}
 }
-void Converter::print_float(){
+void Converter::print_float(std::string str){
 	std::cout << "float: ";
 	try
 	{
-		float floating = (float)std::stof(str);
+		float floating = static_cast<float>(std::stof(str));
 		std::cout << floating;
-		if ((int)floating == floating)
-			std::cout << ".0"; 
-		std::cout << "f\n";
+		if (static_cast<int>(floating) == floating)
+			std::cout << ".0";
+		std::cout << "f" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::invalid_argument &e)
 	{
-		std::cout << "Imposible\n";
+		std::cout << "Impossible" << std::endl;
+	}
+	catch(const std::out_of_range &e)
+	{
+		std::cout << "Non displayable" << std::endl;
 	}
 }
-void Converter::print_double(){
+void Converter::print_double(std::string str){
 	std::cout << "double: ";
 	try
 	{
-		double num = (float)std::stod(str);
-		std::cout << num;
-		if ((int)num == num)
-			std::cout << ".0"; 
-		std::cout << "\n";
+		double d = static_cast<double>(std::stod(str));
+		std::cout << d;
+		if (static_cast<int>(d) == d)
+			std::cout << ".0";
+		std::cout << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::invalid_argument &e)
 	{
-		std::cout << "Imposible\n";
+		std::cout << "Impossible" << std::endl;
+	}
+	catch(const std::out_of_range &e)
+	{
+		std::cout << "Non displayable" << std::endl;
 	}
 }
