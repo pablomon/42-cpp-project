@@ -6,7 +6,7 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 23:23:47 by pmontese          #+#    #+#              #
-#    Updated: 2022/01/26 23:18:50 by pmontese         ###   ########.fr        #
+#    Updated: 2022/04/14 15:54:12 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS	:= $(SRCS:.cpp=.o)
 
 # Define all the compiling flags.
 CXX			:= clang++
-CXXFLAGS	:= -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS	:=  -std=c++98 all -Werror -Wextra
 
 # Compile and create everything.
 all: $(NAME)

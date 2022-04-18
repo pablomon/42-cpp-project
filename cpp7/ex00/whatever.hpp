@@ -22,7 +22,7 @@ T min(T &item1, T &item2)
 };
 
 template <typename T>
-T max(T item1, T item2)
+T max(T &item1, T &item2)
 {
 	if (item1 <= item2)
 		return item2;
