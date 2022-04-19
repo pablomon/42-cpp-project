@@ -8,8 +8,7 @@ class Array {
 	public:
 	Array() : content(new T[0]), size(0) {};
 
-	Array(unsigned int n): content(new T[n]), size(n) {
-	};
+	Array(unsigned int n): content(new T[n]), size(n) {};
 
 	Array(const Array<T> &o) {
 		size = o.size;
@@ -22,6 +21,7 @@ class Array {
 
 	Array &operator= (const Array<T> &o) {
 		size = o.size;
+		delete []content;
 		content = new T[size];
 		for (size_t i = 0; i < size; i++)
 			content[i] = o.content[i];
@@ -29,14 +29,14 @@ class Array {
 	};
 
 	void *operator new[] (size_t n) {
-		Array<T> *array = new Array<T>((unsigned int)n);
+		Array<T> *array = new Array<T>(n);
 		array->size = n;
 		array->content = new T[n];
 		return array;
 	};
 
 	T &operator[] (size_t n) {
-		if (n < 0 || n >= size)
+		if (n >= size)
 			throw std::exception();
 		return content[n];
 	}
