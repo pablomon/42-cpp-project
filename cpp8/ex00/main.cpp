@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/19 13:46:07 by pmontese          #+#    #+#             */
+/*   Updated: 2022/04/19 13:46:23 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -8,7 +20,7 @@
 
 int main()
 {
-    std::vector<int> v;
+	std::vector<int> v;
 	v.push_back(1);
 	v.push_back(2);
 	v.push_back(3);
@@ -54,5 +66,5 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
-    return 0;
+	return 0;
 }

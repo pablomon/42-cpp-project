@@ -1,29 +1,29 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#define LOG(x) std::cout << x << std::endl
+#include <unistd.h>
 
 #include "span.hpp"
 
 int main()
 {
-	LOG("Test with known numbers:");
+	std::cout << "Test with known numbers: " << std::endl;
 	span s = span(10);
+	s.addNumber(-10);
 	s.addNumber(10);
 	s.addNumber(20);
-	s.addNumber(8);
-	LOG("Shortest span:");
-	LOG(s.shortestSpan());
-	LOG("Longest span:");
-	LOG(s.longestSpan());
+	std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << s.longestSpan() << std::endl;
 
-	LOG("\nTest with 100 ramdom numbers:");
-	s = span(100);
+	size_t n = 100000;
+	std::cout << "\nTest with " << n << " ramdom numbers:" << std::endl;
+	s = span(n);
 	std::vector<int> v;
-	int min = -1, max = -1, min2 = 2000;
-	for (size_t i = 0; i < 100; i++)
+	int min = -1, max = -1, min2 = 1001;
+	std::srand(getpid());
+	for (size_t i = 0; i < n; i++)
 	{
-		int rnd = rand() % 1000;
+		int rnd = rand() % 1000000;
 		v.push_back(rnd);
 		if (min == -1)
 			min = rnd;
@@ -37,35 +37,36 @@ int main()
 	std::cout << "Second minimum = " << min2 << std::endl;
 	std::cout << "Maximum = " << max << std::endl;
 	s.addRange(v.begin(), v.end());
-	LOG("Shortest span:");
-	LOG(s.shortestSpan());
-	LOG("Longest span:");
-	LOG(s.longestSpan());	
+	std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
+	std::cout << "Longest span = " << s.longestSpan() << std::endl;
 
-	LOG("\nTest with span only one value:");
+	std::cout << "\nTest with span only one value:" << std::endl;
 	try
 	{
 		s = span(1);
 		s.addNumber(10);
-		LOG(s.longestSpan());
+		std::cout << "Shortest span = " << s.shortestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	LOG("\nTest trying to add more numbers than size:");
+	std::cout << "\nTest trying to add more numbers than size:" << std::endl;
 	try
 	{
+		std::cout << "Span size = 1" << std::endl;
 		s = span(1);
+		std::cout << "Trying to add number.." << std::endl;
 		s.addNumber(34);
+		std::cout << "Trying to add number.." << std::endl;
 		s.addNumber(10);
-		LOG(s.longestSpan());
+		std::cout << "Two numbers added" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+
     return 0;
 }

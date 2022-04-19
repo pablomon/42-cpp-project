@@ -41,9 +41,9 @@ unsigned int span::shortestSpan()
 {
 	if (container.size() < 2)
 		throw SpanException();
-	
+
 	std::sort(container.begin(), container.end());
-	double diff = *(container.begin() + 1) - *container.begin();
+	int diff = *(container.begin() + 1) - *container.begin();
 	return (std::abs(diff));
 }
 
@@ -52,6 +52,6 @@ unsigned int span::longestSpan()
 	if (container.size() < 2)
 		throw SpanException();
 	std::sort(container.begin(), container.end());
-	double diff = *(container.end() - 1) - *container.begin();
+	int diff = *(container.end() - 1) - *container.begin();
 	return (std::abs(diff));
 }

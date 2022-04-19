@@ -1,6 +1,0 @@
-#ifndef MUTANSTACK_HPP
-# define MUTANSTACK_HPP
-
-
-
-#endif // !MUTANSTACK_HPP
