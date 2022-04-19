@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/19 18:00:17 by pmontese          #+#    #+#             */
+/*   Updated: 2022/04/19 18:00:19 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <list>
 
@@ -6,7 +18,28 @@
 int main(void)
 {
 	{
-		std::cout << "Tests as a list:" << std::endl;
+		std::cout << "Inherited copy constructor test" << std::endl;
+		MutantStack <int> mstack;
+		mstack.push(1);
+		mstack.push(2);
+		std::cout << "Mutant stack 1:" << std::endl;
+		for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); it++)
+			std::cout << *it << std::endl;
+
+		std::cout << "Copy mstack1 -> mstack2" << std::endl;
+		MutantStack <int> mstack2(mstack);
+		mstack.pop();
+		std::cout << "Modified mutant stack 1:" << std::endl;
+		for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); it++)
+			std::cout << *it << std::endl;
+		std::cout << "Mutant stack 2:" << std::endl;
+		for (MutantStack<int>::iterator it = mstack2.begin(); it != mstack2.end(); it++)
+			std::cout << *it << std::endl;
+		std::cout << std::endl;
+	}
+
+	{
+		std::cout << "Subject tests as a list:" << std::endl;
 
 		std::cout << "Push back:" << std::endl;
 		std::list <int> alist;
@@ -43,7 +76,7 @@ int main(void)
 	}
 
 	{
-		std::cout << "\nTests as a Mutanstack:" << std::endl;
+		std::cout << "\nSubject tests as a Mutanstack:" << std::endl;
 
 		std::cout << "Push back:" << std::endl;
 		MutantStack <int> mstack;
@@ -80,7 +113,7 @@ int main(void)
 	}
 
 	{
-		std::cout << "\nTests as a Mutanstack of strings:" << std::endl;
+		std::cout << "\nSubject tests as a Mutanstack of strings:" << std::endl;
 
 		std::cout << "Push back:" << std::endl;
 		MutantStack <std::string> mstack;
@@ -115,5 +148,6 @@ int main(void)
 
 		std::stack<std::string> s(mstack);
 	}
+
 	return 0;
 }

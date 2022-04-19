@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mutantstack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/19 18:00:12 by pmontese          #+#    #+#             */
+/*   Updated: 2022/04/19 18:00:13 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
@@ -8,7 +20,6 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-
 	MutantStack();
 	virtual ~MutantStack();
 	MutantStack(const MutantStack<T> &other);
@@ -47,6 +58,7 @@ typename MutantStack<T>::iterator MutantStack<T>::begin() {
 
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end() {
+
 	return this->c.end();
 }
 
